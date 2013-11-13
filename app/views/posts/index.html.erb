@@ -1,0 +1,21 @@
+<h1>List of Pictures</h1>
+<%= link_to("Add a new picture", new_post_url) %>
+<ul>
+    <% @pic.each do |pic| %>
+      <li>
+        <%= image_tag(pic.source, :width => 200) %>
+        <div>
+          <p>Picture number <%= pic.id %> </p>
+        </div>
+        <div>
+          <%= link_to("Edit this picture", edit_post_url(pic.id)) %>
+        </div>
+        <div>
+          <%= link_to("Destroy", post_url(pic.id), :method => "delete") %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+
+

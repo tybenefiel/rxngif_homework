@@ -1,0 +1,12 @@
+<h1>Picture Details #<%= @pic.id %></h1>
+
+<%= image_tag(@pic.source, :width =>200) %>
+
+<p> <%= @pic.caption %> </p>
+
+        <div>
+          <%= link_to("Edit this picture", edit_post_url(@pic.id)) %>
+        </div>
+        <div>
+          <%= link_to("Destroy", posts_url(@pic.id), :method => "delete") %>
+        </div>

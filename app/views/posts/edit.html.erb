@@ -1,0 +1,15 @@
+<h1>Edit Your Picture</h1>
+
+<%= form_tag(post_url(@pic.id), :method => "patch") do%>
+  <div>
+    <%= label_tag :caption, "Caption:" %>
+    <%= text_field_tag :caption, @pic.caption %>
+  </div>
+  <div>
+    <%= label_tag :source, "Image URL" %>
+    <%= text_field_tag :source, @pic.source %>
+  </div>
+  <div>
+    <%= submit_tag "Add picture" %>
+  </div>
+<% end %>

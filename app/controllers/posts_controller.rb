@@ -1,4 +1,4 @@
-class PicturesController < ApplicationController
+class PostsController < ApplicationController
   def show
     @pic = Picture.find(params[:id])
   end
@@ -8,7 +8,6 @@ class PicturesController < ApplicationController
   end
 
   def new
-
   end
 
   def create
@@ -16,11 +15,13 @@ class PicturesController < ApplicationController
     @i.caption = params[:caption]
     @i.source = params[:source]
     @i.save
+    redirect_to(posts_url)
   end
 
   def destroy
     i = Picture.find(params[:id])
     i.destroy
+    redirect_to(posts_url, :notice =>"Picture has been deleted.")
   end
 
   def edit
@@ -32,6 +33,7 @@ class PicturesController < ApplicationController
     @i.caption = params[:caption]
     @i.source = params[:source]
     @i.save
+    redirect_to(post_url(@i.id))
   end
 
 end
